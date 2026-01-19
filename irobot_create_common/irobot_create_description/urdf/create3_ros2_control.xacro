@@ -1,0 +1,36 @@
+<ros2_control name="ros2_control" type="system">
+  <hardware>
+    <plugin>fake_components/GenericSystem</plugin>
+  </hardware>
+
+  <joint name="left_wheel_joint">
+    <command_interface name="velocity"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="right_wheel_joint">
+    <command_interface name="velocity"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <controller name="diff_drive_controller" type="diff_drive_controller/DiffDriveController">
+    <ros>
+      <namespace>/</namespace>
+    </ros>
+    <publish_rate>50</publish_rate>
+
+    <left_wheel_names>["left_wheel_joint"]</left_wheel_names>
+    <right_wheel_names>["right_wheel_joint"]</right_wheel_names>
+
+    <wheel_separation>0.297</wheel_separation>
+    <wheel_radius>0.033</wheel_radius>
+
+    <odom_frame>odom</odom_frame>
+    <base_frame>base_link</base_frame>
+
+    <publish_cmd>true</publish_cmd>
+    <publish_tf>true</publish_tf>
+  </controller>
+</ros2_control>

@@ -56,7 +56,7 @@ def generate_launch_description():
         name='hazards_vector_publisher',
         executable='hazards_vector_publisher',
         parameters=[hazards_params_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -66,7 +66,7 @@ def generate_launch_description():
         name='ir_intensity_vector_publisher',
         executable='ir_intensity_vector_publisher',
         parameters=[ir_intensity_params_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -75,7 +75,7 @@ def generate_launch_description():
         package='irobot_create_nodes',
         name='motion_control',
         executable='motion_control',
-        parameters=[{'use_sim_time': True}],
+        parameters=[{'use_sim_time': False}],
         output='screen',
         remappings=[
             ('/tf', 'tf'),
@@ -89,7 +89,7 @@ def generate_launch_description():
         name='wheel_status_publisher',
         executable='wheel_status_publisher',
         parameters=[wheel_status_params_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -99,7 +99,7 @@ def generate_launch_description():
         name='mock_publisher',
         executable='mock_publisher',
         parameters=[mock_params_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -109,7 +109,7 @@ def generate_launch_description():
         name='robot_state',
         executable='robot_state',
         parameters=[robot_state_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -119,7 +119,7 @@ def generate_launch_description():
         name='kidnap_estimator_publisher',
         executable='kidnap_estimator_publisher',
         parameters=[kidnap_estimator_yaml_file,
-                    {'use_sim_time': True}],
+                    {'use_sim_time': False}],
         output='screen',
     )
 
@@ -129,7 +129,7 @@ def generate_launch_description():
         name='ui_mgr',
         executable='ui_mgr',
         parameters=[ui_mgr_params_yaml_file,
-                    {'use_sim_time': True},
+                    {'use_sim_time': False},
                     {'gazebo': LaunchConfiguration('gazebo')}],
         output='screen',
     )

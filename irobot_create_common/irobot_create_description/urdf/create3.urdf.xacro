@@ -9,7 +9,8 @@
   <xacro:include filename="$(find irobot_create_description)/urdf/sensors/ir_intensity.urdf.xacro" />
   <xacro:include filename="$(find irobot_create_description)/urdf/sensors/ir_opcode_receivers.urdf.xacro" />
   <xacro:include filename="$(find irobot_create_description)/urdf/sensors/optical_mouse.urdf.xacro"/>
-  <xacro:include filename="$(find irobot_create_description)/urdf/wheel_with_wheeldrop.urdf.xacro" />
+  <!-- <xacro:include filename="$(find irobot_create_description)/urdf/wheel_with_wheeldrop.urdf.xacro" /> -->
+  <xacro:include filename="$(find irobot_create_description)/urdf/lidar.urdf.xacro" />
 
   <!-- Gazebo version -->
   <xacro:arg name="gazebo"                       default="classic" />
@@ -99,13 +100,13 @@
   </xacro:bumper>
 
   <!-- Wheels with mechanical wheel drop -->
-  <xacro:wheel_with_wheeldrop name="left" gazebo="$(arg gazebo)" namespace="$(arg namespace)">
+  <!-- <xacro:wheel_with_wheeldrop name="left" gazebo="$(arg gazebo)" namespace="$(arg namespace)">
     <origin xyz="0 ${distance_between_wheels/2} ${wheel_drop_z  + base_link_z_offset}" rpy="${-pi/2} 0 0"/>
   </xacro:wheel_with_wheeldrop>
 
   <xacro:wheel_with_wheeldrop name="right" gazebo="$(arg gazebo)" namespace="$(arg namespace)">
     <origin xyz="0 ${-distance_between_wheels/2} ${wheel_drop_z  + base_link_z_offset}" rpy="${-pi/2} 0 0"/>
-  </xacro:wheel_with_wheeldrop>
+  </xacro:wheel_with_wheeldrop> -->
 
   <!-- Caster wheel -->
   <xacro:caster name="front_caster" parent_link="base_link">
@@ -302,4 +303,6 @@
       </plugin>
     </gazebo>
   </xacro:if>
+
+  <xacro:lidar parent_link="base_link"/>
 </robot>
